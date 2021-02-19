@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>AI对联</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="app">
+<div class="poembg">
+<div class="query">
+<div class="queryinput el-input"><input type="text" autocomplete="off" placeholder="请输入" class="el-input__inner" v-model.lazy.trim="message" v-on:keyup.enter="getCouplet"></div>
+<button type="button" class="el-button querybutton el-button--primary" v-on:click="getCouplet"><span>对联</span></button></div>
+<div class="resulttip"><span class="timeused">耗时：<b>{{timeused}}ms</b></span>
+<span class="next">Topk：<input type="text" autocomplete="off" v-model.lazy.number="topk"></span></div>
+<div class="answer"><p class="poem" v-html="result"></p></div>
+</div></div>
+<script src="app.js"></script>
+</body>
+</html>

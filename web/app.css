@@ -1,0 +1,101 @@
+#app {
+ width:100%;
+ min-height:100%;
+ overflow-x:hidden;
+ padding: 12px;
+ background-color:#ecf0f0
+}
+* {
+ -ms-touch-action:pan-y;
+ touch-action:pan-y
+}
+.poembg {
+ width:100%;
+ max-width:800px;
+ text-align:center;
+ margin:0 auto
+}
+.query {
+ margin:10px 0;
+ max-width:100%;
+ display:-ms-flexbox;
+ display:flex;
+ -ms-flex-pack:justify;
+ justify-content:space-between
+}
+.query .queryinput {
+ width:calc(100% - 70px)
+}
+.resulttip {
+ margin-top:12px;
+ width:100%;
+ max-width:100%;
+ display:-ms-flexbox;
+ display:flex;
+ -ms-flex-pack:justify;
+ justify-content:space-between;
+ font-size:14px;
+ height:24px;
+ line-height:24px
+}
+.resulttip .timeused {
+ color:#8c8a8a
+}
+.resulttip .timeused b {
+ color:#846e4e
+}
+.resulttip .next {
+ float:right;
+ color:#846e4e;
+ display:-ms-flexbox;
+ display:flex;
+ -ms-flex-align:center;
+ align-items:center
+}
+.resulttip .next input {
+ border: none;
+ background: transparent;
+ width: 10px;
+}
+.answer {
+ width:100%;
+ padding:16px 0;
+ margin-top:2px
+}
+.answer .poem {
+ margin:2px auto;
+ text-align:center;
+ color:#4d4949;
+ font-size:24px;
+ line-height:32px;
+ padding:0 12px
+}
+.answer .poem b {
+ color:#2f2f2f;
+ font-size:20px
+}
+@media screen and (max-width:330px) {
+ .answer .poem {
+  font-size:16px
+ }
+}
+@media screen and (max-width:350px) and (min-width:331px) {
+ .answer .poem {
+  font-size:18px
+ }
+}
+@media screen and (max-width:370px) and (min-width:351px) {
+ .answer .poem {
+  font-size:19px
+ }
+}
+@media screen and (max-width:400px) and (min-width:371px) {
+ .answer .poem {
+  font-size:20px
+ }
+}
+@media screen and (max-width:600px) and (min-width:401px) {
+ .answer .poem {
+  font-size:21px
+ }
+}

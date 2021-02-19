@@ -1,0 +1,111 @@
+.el-input {
+ position:relative;
+ font-size:14px;
+ display:inline-block;
+ width:100%
+}
+.el-input__inner {
+ -webkit-appearance:none;
+ background-color:#FFF;
+ background-image:none;
+ border-radius:4px;
+ border:1px solid #DCDFE6;
+ -webkit-box-sizing:border-box;
+ box-sizing:border-box;
+ color:#606266;
+ display:inline-block;
+ font-size:inherit;
+ height:40px;
+ line-height:40px;
+ outline:0;
+ padding:0 15px;
+ -webkit-transition:border-color .2s cubic-bezier(.645,.045,.355,1);
+ transition:border-color .2s cubic-bezier(.645,.045,.355,1);
+ width:100%
+}
+.el-input__inner::-webkit-input-placeholder {
+ color:#C0C4CC
+}
+.el-input__inner:-ms-input-placeholder {
+ color:#C0C4CC
+}
+.el-input__inner::-ms-input-placeholder {
+ color:#C0C4CC
+}
+.el-input__inner::placeholder {
+ color:#C0C4CC
+}
+.el-input__inner:hover {
+ border-color:#C0C4CC
+}
+.el-input.is-active .el-input__inner,
+.el-input__inner:focus {
+ border-color:#409EFF;
+ outline:0
+}
+.el-input__inner::-ms-clear {
+ display:none;
+ width:0;
+ height:0
+}
+.el-button {
+ display:inline-block;
+ line-height:1;
+ white-space:nowrap;
+ cursor:pointer;
+ background:#FFF;
+ border:1px solid #DCDFE6;
+ color:#606266;
+ -webkit-appearance:none;
+ text-align:center;
+ -webkit-box-sizing:border-box;
+ box-sizing:border-box;
+ outline:0;
+ margin:0;
+ -webkit-transition:.1s;
+ transition:.1s;
+ font-weight:500;
+ padding:12px 20px;
+ font-size:14px;
+ border-radius:4px
+}
+.el-button+.el-button {
+ margin-left:10px
+}
+.el-button:focus,
+.el-button:hover {
+ color:#409EFF;
+ border-color:#c6e2ff;
+ background-color:#ecf5ff
+}
+.el-button:active {
+ color:#3a8ee6;
+ border-color:#3a8ee6;
+ outline:0
+}
+.el-button::-moz-focus-inner {
+ border:0
+}
+.el-button [class*=el-icon-]+span {
+ margin-left:5px
+}
+.el-button--primary {
+ color:#FFF;
+ background-color:#409EFF;
+ border-color:#409EFF
+}
+.el-button--primary:focus,
+.el-button--primary:hover {
+ background:#66b1ff;
+ border-color:#66b1ff;
+ color:#FFF
+}
+.el-button--primary.is-active,
+.el-button--primary:active {
+ background:#3a8ee6;
+ border-color:#3a8ee6;
+ color:#FFF
+}
+.el-button--primary:active {
+ outline:0
+}

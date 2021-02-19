@@ -18,7 +18,7 @@ tf.config.set_visible_devices([], 'GPU') # 使用CPU
 #physical_devices = tf.config.list_physical_devices('GPU') 
 #tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='web')
 
 token_dict, _ = load_vocab(
     dict_path=dict_path,
@@ -30,14 +30,22 @@ model = tf.keras.models.load_model('data/model.h5', custom_objects={'PositionEmb
 
 decoder = BertDecoder(tokenizer, model)
 
+@app.route('/')
+def root():
+    return app.send_static_file('index.html')
+
 # seq2seq请求
 @app.route("/api/v1/couplet", methods=['GET','POST','OPTIONS'])
 def bertseq2seq():
     if request.method == "OPTIONS": # CORS preflight
         return _build_cors_prelight_response()
     start =time.time()
-    data = request.values['data'] if 'data' in request.values else '虎啸青山抒壮志'
-    topk = int(request.values['topk']) if 'topk' in request.values else 1
+    if request.is_json:
+        values = request.get_json(force=True)
+    else:
+        values = request.values
+    data = values['data'] if 'data' in values else '虎啸青山抒壮志'
+    topk = int(values['topk']) if 'topk' in values else 1
     print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), 'topk:', topk)
     r = decoder.generate(data,topk)
     end = time.time()
