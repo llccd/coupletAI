@@ -46,8 +46,10 @@ def bertseq2seq():
         values = request.values
     data = values['data'] if 'data' in values else '虎啸青山抒壮志'
     topk = int(values['topk']) if 'topk' in values else 1
+    rand = topk < 0
+    if rand: topk = -topk
     print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), 'topk:', topk)
-    r = decoder.generate(data,topk)
+    r = decoder.generate(data, topk, rand)
     end = time.time()
     print('In：%s' %(data))
     print('Out：%s' %(r))

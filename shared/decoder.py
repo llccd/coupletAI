@@ -3,7 +3,7 @@
 import numpy as np
 
 class BertDecoder:
-    def generate(self, s, topk=2):
+    def generate(self, s, topk=2, rand=False):
         """beam search解码
         每次只保留topk个最优候选结果；如果topk=1，那么就是贪心搜索
         """
@@ -59,7 +59,7 @@ class BertDecoder:
             _topk_arg = np.argsort(_candidate_scores)[-topk:]  # 从中选出新的topk
             target_ids = [_candidate_ids[k] for k in _topk_arg]
             target_scores = [_candidate_scores[k] for k in _topk_arg]
-        return self.tokenizer.decode(target_ids[np.argmax(target_scores)])
+        return self.tokenizer.decode(target_ids[np.random.randint(topk) if rand else -1])
 
     def __init__(self, tokenizer, model):
         self.tokenizer = tokenizer

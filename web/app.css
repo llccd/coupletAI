@@ -2,7 +2,7 @@
  width:100%;
  min-height:100%;
  overflow-x:hidden;
- padding: 12px;
+ padding: 12px 0;
  background-color:#ecf0f0
 }
 * {
@@ -55,7 +55,7 @@
 .resulttip .next input {
  border: none;
  background: transparent;
- width: 10px;
+ width: 15px;
 }
 .answer {
  width:100%;

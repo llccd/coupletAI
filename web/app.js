@@ -8,6 +8,7 @@ var app = new Vue({
   },
   methods: {
     getCouplet: function () {
+    if(!this.message || !this.topk) return;
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
