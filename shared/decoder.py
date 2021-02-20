@@ -7,12 +7,11 @@ class BertDecoder:
         """beam search解码
         每次只保留topk个最优候选结果；如果topk=1，那么就是贪心搜索
         """
-        s = s.replace(' ','，').replace('。','')
         token_ids, segment_ids = self.tokenizer.encode(s)
         target_ids = [[] for _ in range(topk)]  # 候选答案id
         target_scores = [0] * topk  # 候选答案分数
 
-        for i in range(len(s)):  # 强制要求输出不超过len字
+        for i in range(len(token_ids) - 2):  # 强制要求输出不超过输入长度
             _target_ids = np.array([token_ids + t for t in target_ids])
             _segment_ids = np.array([segment_ids + [1] * len(t) for t in target_ids])
             _probas = self.model.predict([_target_ids, _segment_ids])[:, -1, 4:]  # 直接忽略[PAD], [UNK], [CLS]
