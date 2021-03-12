@@ -4,6 +4,7 @@ var app = new Vue({
     message: '',
     timeused: 0,
     topk: 1,
+    input: '',
     result: ''
   },
   methods: {
@@ -16,7 +17,7 @@ var app = new Vue({
     };
     fetch("/api/v1/couplet", requestOptions)
       .then(response => response.json())
-      .then(data => {this.result = this.message+'<br>'+data.result; this.timeused = data.timeused});
+      .then(data => {this.result = data.result; this.timeused = data.timeused; this.input = this.message});
     }
   }
 })

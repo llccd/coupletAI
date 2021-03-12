@@ -16,7 +16,7 @@
 <button type="button" class="el-button querybutton el-button--primary" v-on:click="getCouplet"><span>对联</span></button></div>
 <div class="resulttip"><span class="timeused">耗时：<b>{{timeused}}ms</b></span>
 <span class="next">Topk：<input type="text" autocomplete="off" v-model.lazy.number="topk"></span></div>
-<div class="answer"><p class="poem" v-html="result"></p></div>
+<div class="answer"><p class="poem">{{input}}<br>{{result}}</p></div>
 </div></div>
 <script src="app.js"></script>
 </body>
